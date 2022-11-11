@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>UI Test Automation Model (UTAM)</title>
+
+    <meta
+      name="description"
+      content="A framework for easily creating beautiful presentations using HTML"
+    />
+    <meta name="author" content="Hakim El Hattab" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <a href="https://utam.dev/">
+            <img
+              src="./assets/logo.png"
+              alt="UI test logo"
+              style="
+                height: 180px;
+                margin: 0 auto 4rem auto;
+                background: transparent;
+              "
+              class="demo-l@go"
+            />
+          </a>
+          <h3>End-to-End Tests with the UI Test Automation Model (UTAM)</h3>
+          <p>
+            <small
+              >Created by
+              <a href="https://github.com/vovantais">
+                Vladimir Gedeiko
+                <img
+                  src="./assets/github-icon.png"
+                  style="
+                    height: 30px;
+                    margin: 0 auto 4rem auto;
+                    background: transparent;
+                  " /></a
+            ></small>
+          </p>
+        </section>
+
+        <section>
+          <h2>Today we will discuss about</h2>
+          <ul>
+            <li class="fragment">What is End-to-End Tests?</li>
+            <li class="fragment">What is UI Test Automation Model (UTAM)?</li>
+            <li class="fragment">How it is work with Salesforce?</li>
+          </ul>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <p
+              data-id="text-props"
+              style="
+                background: #555;
+                line-height: 1em;
+                letter-spacing: 0em;
+                margin-top: 130px;
+              "
+            >
+              What is End-to-End Tests?
+            </p>
+          </section>
+          <section data-auto-animate>
+            <p
+              data-id="text-props"
+              style="
+                background: #555;
+                line-height: 3em;
+                letter-spacing: 0.2em;
+                margin-top: 130px;
+              "
+            >
+              What is End-to-End Tests?
+            </p>
+          </section>
+          <img src="./assets/End-to-End-Testing.jpg" />
+        </section>
+
+        <section>
+          <h5>End-to-End Tests</h5>
+          <p style="font-size: 30px;">
+            The essence of this testing is to see if the program for the final
+            client works, as was originally calculated. E2E tests are often
+            performed with an automated UI testing tool (Example
+            <a href="https://webdriver.io/">WebdriverIO</a>).
+          </p>
+          <p style="font-size: 30px;">
+            Unlike unit tests, which cover individual components in isolation,
+            E2E tests closely mimic the interactions of business users. E2E
+            tests use a real browser to interact with components and navigate
+            across screens when executing test scenarios.
+          </p>
+          <p style="font-size: 30px;">
+            End-to-End tests is the final stage of testing, after which they do
+            not conduct any tests.
+          </p>
+        </section>
+
+        <section data-auto-animate style="height: 600px">
+          <h2 data-id="title" style="margin-top: 260px">
+            The Software Testing Pyramid
+          </h2>
+          <div
+            data-id="1"
+            style="
+              background: white;
+              position: absolute;
+              top: 150px;
+              left: 26%;
+              width: 60px;
+              height: 60px;
+            "
+          ></div>
+          <div
+            data-id="2"
+            style="
+              background: white;
+              position: absolute;
+              top: 150px;
+              left: 46%;
+              width: 60px;
+              height: 60px;
+            "
+          ></div>
+          <div
+            data-id="3"
+            style="
+              background: white;
+              position: absolute;
+              top: 150px;
+              left: 66%;
+              width: 60px;
+              height: 60px;
+            "
+          ></div>
+        </section>
+        <section data-auto-animate style="height: 600px">
+          <h3 style="opacity: 0.3; font-size: 18px">
+            The Software Testing Pyramid
+          </h3>
+          <div
+            data-id="1"
+            style="
+              background: cyan;
+              position: absolute;
+              bottom: 190px;
+              left: 26%;
+              width: 60px;
+              height: 330px;
+            "
+          >
+            Unit Tests
+          </div>
+          <div
+            data-id="2"
+            style="
+              background: magenta;
+              position: absolute;
+              bottom: 190px;
+              left: 46%;
+              width: 60px;
+              height: 230px;
+            "
+          >
+            Integration Tests
+          </div>
+          <div
+            data-id="3"
+            style="
+              background: red;
+              position: absolute;
+              bottom: 190px;
+              left: 66%;
+              width: 60px;
+              height: 110px;
+            "
+          >
+            End to End
+          </div>
+        </section>
+        <section data-auto-animate style="height: 600px">
+          <h3 style="opacity: 0.3; font-size: 18px">
+            The Software Testing Pyramid
+          </h3>
+          <div
+            data-id="1"
+            style="
+              background: cyan;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 400px;
+              height: 400px;
+              margin: -200px 0 0 -200px;
+              border-radius: 400px;
+            "
+          ></div>
+          <div
+            data-id="2"
+            style="
+              background: magenta;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 300px;
+              height: 300px;
+              margin: -150px 0 0 -150px;
+              border-radius: 400px;
+            "
+          ></div>
+          <div
+            data-id="3"
+            style="
+              background: red;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 200px;
+              height: 200px;
+              margin: -100px 0 0 -100px;
+              border-radius: 400px;
+            "
+          ></div>
+        </section>
+        <section data-auto-animate style="height: 600px">
+          <h3 data-id="title" style="margin-top: 60px">
+            The Software Testing Pyramid
+          </h3>
+          <img
+            src="./assets/types of test.png"
+            alt="E2E test"
+            style="width: 550px"
+          />
+        </section>
+
+        <!-- style="position: absolute; bottom:20px, text-align: center," -->
+
+        <!-- Example of nested vertical slides -->
+        <section>
+          <section>
+            <h2>Pros and Cons End-to-End Tests</h2>
+          </section>
+          <section>
+            <h2>Pros:</h2>
+            <p>
+              Each separate test covers the real scenario of using the
+              application and gives much more understanding to other developers,
+              including the future, how exactly and why all this works. Based on
+              the results of the work, you get "real" code-coverage.
+            </p>
+            <p>
+              In general, the use of only E2E testing for the application makes
+              us think about simplifying the structure of your system and
+              improving documentation.
+            </p>
+          </section>
+          <section>
+            <h2>Cons:</h2>
+            <img src="./assets/minesE2ETests.png" alt="mines E2E Tests" />
+          </section>
+        </section>
+
+        <section>
+          <p>
+           For example, Google company in the development of its products follows
+            the rule "70-20-10", the numbers of which show the percentage ratio
+            From the total number of tests, that is:
+          </p>
+          <section data-auto-animate>
+            <ul>
+              <li>10% occupy E2E tests.</li>
+              <li>20% occupy integration tests.</li>
+              <li>70% occupy unit tests.</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul>
+              <li>70% occupy unit tests.</li>
+              <li>20% occupy integration tests.</li>
+              <li>10% occupy E2E tests.</li>
+            </ul>
+          </section>
+        </section>
+
+		<section>
+			<section data-auto-animate>
+			  <p
+				data-id="text-props"
+				style="
+				  background: #555;
+				  line-height: 1em;
+				  letter-spacing: 0em;
+				  margin-top: 130px;
+				"
+			  >
+			  What is UI Test Automation Model (UTAM)?
+			  </p>
+			</section>
+			<section data-auto-animate>
+			  <p
+				data-id="text-props"
+				style="
+				  background: #555;
+				  line-height: 2em;
+				  letter-spacing: 0.2em;
+				  margin-top: 130px;
+				"
+			  >
+			  What is UI Test Automation Model (UTAM)?
+			  </p>
+			</section>
+		  </section>
+
+		  <section style="width: 100% !important; height: 100% !important;">
+			<h6>UI Test Automation Model (UTAM)</h6>
+			<div style="display: flex; width: 95% !important" >
+				<p style="font-size: 21px;">You write UTAM page objects in JSON with powerful and easy-to-understand grammar. Page objects are reusable blocks that let you reference the DOM of the page under test with CSS selectors. You can compose page objects to create advanced patterns.
+					The fact that page objects act as a shareable contract, and they are written in JSON, are major differentiators compared to other UI testing tools. This allows UTAM to work with a mostly language-agnostic approach.
+					</p>
+					<div>
+						<img src="./assets/UTAM.jpg" alt='UTAM img' width="10000px"  />
+					</div>
+					<p style="font-size: 21px; width: 3000px">When you are ready to run E2E tests, UTAM compiles your page objects into JavaScript, TypeScript, or Java depending on your project settings. xYour tests can then leverage the compiled page objects to interact with your page.</p>
+			</div>
+		  </section>
+	
+        <section>
+          <h5>UI Test Automation Model (UTAM)</h5>
+          <div>
+              <img src="./assets/UTAMExpl.jpg" alt="UTAMExpl" width="2000px" height="550px">
+          </div>
+        </section>
+
+        <section>
+          <section data-auto-animate>
+            <p
+              data-id="text-props"
+              style="
+                background: #555;
+                line-height: 1em;
+                letter-spacing: 0em;
+                margin-top: 130px;
+              "
+            >
+            How it is work with Salesforce?
+            </p>
+          </section>
+          <section data-auto-animate>
+            <p
+              data-id="text-props"
+              style="
+                background: #555;
+                line-height: 3em;
+                letter-spacing: 0.2em;
+                margin-top: 130px;
+              "
+            >
+            How is it work with Salesforce?
+            </p>
+          </section>
+        </section>
+
+        <section data-auto-animate data-auto-animate-id="a">
+					<h2>Requirements for start:</h2>
+          <li>Salesforce CLI</li>
+				</section>
+				<section data-auto-animate data-auto-animate-id="a">
+					<h2>Requirements for start:</h2>
+          <li>Salesforce CLI</li>
+          <li>Node >= 14.15.4</li>
+				</section>
+        <section data-auto-animate data-auto-animate-id="a">
+					<h2>Requirements for start:</h2>
+          <li>Salesforce CLI</li>
+          <li>Node >= 14.15.4</li>
+          <li>Yarn >= 1.22.5</li>
+				</section>
+
+        <section>
+          <h2>Clone the utam-js-recipes repository:</h2>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            git clone git@github.com:salesforce/utam-js-recipes.git
+            cd utam-js-recipes
+                </code></pre>
+                <a href="https://github.com/salesforce/utam-js-recipes">utam-js</a>
+        </section>
+
+        <section>
+          <h4>Project structure</h4>
+          <img src="./assets/project-structura.png" alt="project-structura" height="600px"> 
+        </section>
+
+        <section>
+          <h4>LWC UTAM structure</h4>
+          <img src="./assets/strucure utam lwc.png" alt="utam-structura" height="600px"> 
+        </section>
+
+        <section>
+          <h4>JSON Page Object </h4>
+          <img src="./assets/example-in code.png" alt="example-in code">
+        </section>
+
+        <section>
+          <h2>Install dependencies</h2>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            yarn install
+                </code></pre>
+              <img src="./assets/yarn-install.png" alt="yarn-install">
+        </section>
+
+        <section>
+          <h2>Build the project</h2>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            yarn build
+                </code></pre>
+                <div style="display: flex;">
+                  <div>
+                    <img src="./assets/yarn-build.png" alt="yarn-build" height="450px" width="1200px">
+                  </div>
+                  <div>
+                    <img src="./assets/pageObject.png" alt="pageObject" height="450px" width="1200px">
+                  </div>
+                </div>
+        </section>
+
+        <section>
+          <h4>Test Example</h4>
+          <img src="./assets/test-example.png" alt="test-example" height="600px">
+        </section>
+
+        <section>
+          <h4>yarn create:env</h4>
+          <p>We use a .env file to contain the URL and authentication credentials for test environments that we use.</p>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            yarn create:env
+                </code></pre>
+          <div style="display: flex;">
+            <div>
+              <img src="./assets/create-env.png" alt="create-env">
+            </div>
+            <div>
+              <img src="./assets/env-example.png" alt="env-example" height="450px" width="1200px">
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h5>Prerequisites</h5>
+          <p>Follow the steps in the <a href="https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components">Quick Start: Lightning Web Components</a> Trailhead project. The steps include:</p>
+          <ul>
+            <li class="fragment">Enable Dev Hub in your Trailhead Playground</li>
+            <li class="fragment">Install Salesforce CLI</li>
+          </ul>
+        </section>
+
+        <section>
+          <h5>Org Setup</h5>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            sfdx auth:web:login -d -a myhuborg
+                </code></pre>
+                <div style="display: flex;">
+                  <div>
+                    <img src="./assets/login to org.png" alt="login to org">
+                  </div>
+                  <div>
+                    <img src="./assets/login page.png" alt="login page" height="450px" width="1200px">
+                  </div>
+                </div>
+        </section>
+
+        <section>
+          <h5>Create a scratch org</h5>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            sfdx force:org:create -s -f config/project-scratch-def.json -a utam-js-test
+                </code></pre>
+                <span>Note: If this step throws an error ERROR running force:org:create: You do not have access to the [ScratchOrgInfo] object, you must enable Dev Hub.</span>
+                <img src="./assets/scretch-org-create.png" alt="scretch-org-create" height="300px" width="800px">
+        </section>
+
+        <section>
+          <h5>Push the app to your scratch org:</h5>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            sfdx force:source:push
+                </code></pre>
+          <img src="./assets/push-to-scretchOrg.png" alt="push-to-scretchOrg">
+        </section>
+
+        <section>
+          <h5>Assign the utam permission set to the default user:</h5>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            sfdx force:user:permset:assign -n utam
+                </code></pre>
+                <span>Note: if this step throws an error Permission set not found in target org, run sfdx plugins:install user and repeat previous step</span>
+                <img src="./assets/assign-permSet.png" alt="assign-permSet">
+        </section>
+
+        <section>
+          <h5>Open the scratch org:</h5>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            sfdx force:org:open
+                </code></pre>
+                <div style="display: flex;">
+                  <div>
+                    <img src="./assets/open-scratcOrg.png" alt="open-scratcOrg">
+                  </div>
+                  <div>
+                    <img src="./assets/example-in org.png" alt="example-in org">
+                  </div>
+                </div> 
+        </section>
+
+        <section>
+          <h5>Run the local app in a scratch org test</h5>
+          <span>These tests run under the assumption that the initial URL loaded contains an access token so no manual login is required. To generate such a URL, follow the Org Setup steps above and then run:</span>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            yarn generate:login
+                </code></pre>
+                <img src="./assets/generate-login.png" alt="generate-login">
+        </section>
+
+        <section>
+          <p>This command runs the sfdx command below and adds the generated URL to the .env file in the root of this project</p>
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            sfdx force:org:open -p /lightning -r
+                </code></pre>
+                <img src="./assets/geterateUrl.png" alt="geterateUrl">
+        </section>
+
+        <section>
+          <section data-background="#dddddd">
+            <h2>Finally, run tests:</h2>
+            <a href="#" class="navigate-down">
+            </a>
+          </section>
+          <section
+            data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)"
+          >
+          <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+            yarn test --spec force-app/test/sfdx-scratch-org.spec.js
+                </code></pre>
+          </section>
+          <section
+>
+        </code></pre>
+        <div style="display: flex;">
+          <div>
+            <img src="./assets/startTest.png" alt="startTest">
+          </div>
+          <div>
+            <img src="./assets/passTest.png" alt="passTest">
+          </div>
+        </div> 
+          </section>
+          <section
+            data-background-video="./assets/e2eTest.mkv"
+          >
+          </section>
+          <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+          </section>
+        </section>
+
+        <section>
+          <h2>Your question?</h2>
+        </section>
+        
+        <section>
+          <h5>Useful links</h5>
+          <ul>
+            <li><a href="https://habr.com/ru/post/417395/">Artical habr E2E Tests</a></li>
+            <li><a href="https://codernet.ru/articles/drugoe/end-to-end_ili_e2e-proczess_chto_eto_skvoznoe_testirovanie/">Artical E2E Tests</a></li>
+            <li><a href="https://developer.salesforce.com/blogs/2022/05/run-end-to-end-tests-with-the-ui-test-automation-model-utam"> Artical
+              Developer Salesforce</a></li>
+            <li><a
+              href="https://utam.dev/">Utam Dev Documentation</a></li>
+            <li><a href="https://github.com/salesforce/utam-js-recipes"> Repo utam-js</a></li>
+            <li><a href="https://github.com/vovantais/Presentation-UTAM">Presentation UI Test Automation Model (UTAM)</a></li>
+          </ul>
+        </section>
+
+        <section style="text-align: left;">
+          <h1>THE END</h1>
+          <h4>Thanks for attention</h4>
+        </section>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>
